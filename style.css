@@ -1,0 +1,97 @@
+ body{
+            margin: 0;
+        }
+
+        #wrap{
+            margin:20px;
+            
+        }
+        
+        #header{
+            display:flex;
+            justify-content: space-between;
+        }
+
+        .header-logo{
+            font-family: "Sansation";
+            font-size:6rem;
+            font-weight:900;
+            cursor: pointer;
+        }
+
+        .header-nav{
+            font-weight:700;
+            cursor: pointer;
+        }
+
+        #main{
+            margin-top: 90px;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            column-gap: 5px;
+            row-gap:0;
+        }
+
+        .grid-content img{
+            width:100%;
+        }
+
+        /* Overlay 페이지 기본 스타일   */
+
+        #overlay-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95) ;
+            z-index: 9999;
+            display: none;
+            overflow-y: auto;
+        }
+
+       #wrap-overlay {
+        margin: 20px;
+
+}
+
+
+        #overlay-page.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+
+
+        #main-overlay{
+            margin-top: 90px;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            column-gap: 5px;
+            row-gap:0;
+        }
+
+        #main-overlay .p1{
+            margin:0;
+            grid-column: 1 / 2;   /* 첫 번째 열만 */
+            line-height: 1.7;
+            font-family: "Noto Sans", sans-serif;
+            font-size:0.8rem;
+            font-weight:600;
+
+            
+        }
+
+        #main-overlay .p2{
+            margin:0;
+            grid-column: 4 / 6;   /* 4~5열 (두 칸) */
+            line-height: 1.7;
+            font-family: "Noto Sans", sans-serif;
+            font-size:0.9rem;
+            font-weight:600;
+        }

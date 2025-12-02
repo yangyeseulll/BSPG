@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+KR:wght@200..900&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <title>BSPG</title>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="header-logo">
+                BSPG
+            </div>
+            <div class="header-nav">
+                패턴 생성하러 가기
+            </div>
+        </div>
+        <div id="main">
+            <div class="grid-content">
+                <img src="data/img1.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img2.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img3.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img4.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img5.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img6.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img7.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img8.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img9.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img10.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img11.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img12.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img13.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img14.png" alt="">
+            </div>
+            <div class="grid-content">
+                <img src="data/img15.png" alt="">
+        </div>
+        
+    <!-- Overlay가 로드될 영역 -->
+    <div id="overlay-page"></div>
+
+<script>
+  const overlay = document.getElementById("overlay-page");
+  const mainLogo = document.querySelector("#header .header-logo");
+
+  function toggleOverlay() {
+      if (overlay.classList.contains("active")) {
+          overlay.classList.remove("active");
+          overlay.innerHTML = "";
+      } else {
+          loadPage("overlay.html");
+      }
+  }
+
+  // 메인 로고 클릭 시
+  mainLogo.addEventListener("click", toggleOverlay);
+
+  // overlay 내부 로고는 동적으로 생성되므로 loadPage 안에서 이벤트 추가
+  function loadPage(url) {
+      fetch(url)
+          .then(res => res.text())
+          .then(html => {
+              overlay.innerHTML = html;
+              overlay.classList.add("active");
+              window.scrollTo(0, 0);
+
+              // overlay 안에 있는 로고에도 닫기 기능 추가
+              const innerLogo = overlay.querySelector(".header-logo");
+              if (innerLogo) {
+                  innerLogo.style.cursor = "pointer";
+                  innerLogo.addEventListener("click", toggleOverlay);
+              }
+          });
+  }
+</script>
+
+</body>
+</html>
